@@ -6,10 +6,11 @@
   </head>
   <body>
     <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    Electron <script>document.write(process.versions.electron)</script>,
-    and <strong>annyang</strong>.
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <script>document.write(process.versions.node)</script>,
+    <script>document.write(process.versions.chrome)</script>,
+    <script>document.write(process.versions.electron)</script>,
+    <strong>annyang</strong>.
     <script>
       // Require annyang
       const annyang = require('annyang');
@@ -29,6 +30,13 @@
 
       // Start listening. You can call this here, or attach this call to an event, button, etc.
       annyang.start();
+   </script>   
+   <script>document.write(process.versions.electron)</script>.
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+
     </script>
   </body>
 </html>
