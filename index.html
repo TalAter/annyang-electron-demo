@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    Electron <script>document.write(process.versions.electron)</script>,
-    and <strong>annyang</strong>.
-    <script>
-      // Require annyang
-      const annyang = require('annyang');
 
-      // Turn on debug messages
-      annyang.debug();
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World!</title>
+</head>
 
-      // Define sample command
-      var commands = {
-        'hello': function() {
-          console.log('world');
-        }
-      };
+<body>
+  <h1>Hello World!</h1>
+  <!-- All of the Node.js APIs are available in this renderer process. -->
+  We are using node
+  <script>
+    document.write(process.versions.node)
+  </script>, Chromium
+  <script>
+    document.write(process.versions.chrome)
+  </script>, Electron
+  <script>
+    document.write(process.versions.electron)
+  </script>, and
+  <strong>annyang</strong>.
+  <script>
+    // Require annyang
+    const annyang = require('annyang');
 
-      // Add our commands to annyang
-      annyang.addCommands(commands);
+    // Turn on debug messages
+    annyang.debug();
 
-      // Start listening. You can call this here, or attach this call to an event, button, etc.
-      annyang.start();
-   </script>   
-   <script>document.write(process.versions.electron)</script>.
+    // Define sample command
+    var commands = {
+      'hello': function () {
+        console.log('world');
+      }
+    };
 
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+    // Add our commands to annyang
+    annyang.addCommands(commands);
 
-    </script>
-  </body>
+    // add these callbacks to annyang to console.log when sound is detected
+    annyang.addCallback('soundstart', function () {
+      console.log('sound detected');
+    });
+
+    annyang.addCallback('result', function () {
+      console.log('sound stopped');
+    });
+
+    // Start listening. You can call this here, or attach this call to an event, button, etc.
+    annyang.start();
+  </script>
+  <script>
+    document.write(process.versions.electron)
+  </script>.
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</body>
+
 </html>
