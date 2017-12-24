@@ -2,7 +2,7 @@
 
 const electron = require('electron');
 // Module to control application life.
-const app = electron.app;
+const app = electron;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
@@ -10,7 +10,7 @@ const BrowserWindow = electron.BrowserWindow;
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
@@ -31,7 +31,7 @@ function createWindow () {
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-app.on('ready', createWindow);
+app.on('ready', createWindow());
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
