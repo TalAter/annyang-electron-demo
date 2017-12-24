@@ -1,5 +1,8 @@
 # Speech Recognition in an Electron desktop app using annyang
 
+use the [annyang API readme](https://github.com/TalAter/annyang/blob/master/docs/FAQ.md#why-does-speech-recognition-repeatedly-starts-and-stops) to debug this electron app. Right now speech recognition is starting and disconnecting, console.log()s not currently working, annyang code lives in index.html
+
+
 **Clone and run for a quick way to see Electron in action.**
 
 This is a minimal Electron application based on the Electron [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start), with some added Speech Recognition magic.
